@@ -109,7 +109,3 @@ We welcome contributions to enhance Money Mentor. Feel free to fork the reposito
 ## License
 
 This project is licensed under the MIT License.
-
----
-
-This README provides a clear outline of how to set up and use Money Mentor with MySQL and T1 architecture. Let me know if you need any further details!
