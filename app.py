@@ -8,6 +8,9 @@ import json
 import time
 import joblib
 from openai import OpenAI
+from flask import Flask, request, jsonify, redirect, url_for, render_template
+import mysql.connector
+from werkzeug.security import generate_password_hash, check_password_hash
 
 # export OPENAI_API_KEY="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"
 # export FLASK_SECRET_KEY='your-unique-secret-key'
@@ -16,6 +19,17 @@ from openai import OpenAI
 
 # Initialize the Flask application
 app = Flask(__name__)
+
+# mysql connection:-
+# Connect to the MySQL database
+db = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="Shubham2543@",
+    database="capstone"
+)
+
+cursor = db.cursor()
 
 
 # Set the secret key for the Flask application from an environment variable
@@ -349,31 +363,48 @@ def form_business_idea():
     return render_template('form_business_idea.html')
 
 
-@app.route('/sign_in', methods=["GET", "POST"])
-def sign_in():
-    """
-    Route for the sign-in page.
-
-    This route renders the 'sign_in.html' template, which typically contains a form for
-    user authentication (login).
-
-    Returns:
-    render_template: Renders the 'sign_in.html' template.
-    """
-    return render_template('sign_in.html')
-
-@app.route('/register', methods=["GET", "POST"])
+# Register endpoint
+@app.route('/register', methods=['POST'])
 def register():
-    """
-    Route for the sign-in page.
+    data = request.get_json()
+    username = data.get("username")
+    password = data.get("password")
+    country = data.get("country")
+    hashed_password = generate_password_hash(password)
 
-    This route renders the 'sign_in.html' template, which typically contains a form for
-    user authentication (login).
+    cursor.execute("INSERT INTO users (username, password, country) VALUES (%s, %s, %s)", (username, hashed_password, country))
+    db.commit()
 
-    Returns:
-    render_template: Renders the 'sign_in.html' template.
-    """
+    # Redirect to the sign-in page after successful registration
+    return render_template('sign_in_page.html')
+
+@app.route('/register', methods=['GET'])
+def register_in_page():
+    # Here you might render a sign-in form if using HTML templates
     return render_template('register.html')
+
+# Sign In page (display form or simulate it)
+@app.route('/sign_in', methods=['GET'])
+def sign_in_page():
+    # Here you might render a sign-in form if using HTML templates
+    return render_template('sign_in_page.html')
+
+# Sign In endpoint
+@app.route('/sign_in', methods=['POST'])
+def sign_in():
+    data = request.get_json()
+    username = data.get("username")
+    password = data.get("password")
+
+    cursor.execute("SELECT password FROM users WHERE username = %s", (username,))
+    result = cursor.fetchone()
+
+    if result and check_password_hash(result[0], password):
+        # Render the services page after successful sign-in
+        return render_template('index.html')
+    else:
+        return jsonify({"error": "Invalid username or password"}), 401
+    
        
 
 @app.route('/services', methods=["GET", "POST"])

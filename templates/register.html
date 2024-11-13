@@ -80,40 +80,28 @@
   </footer>
 
   <script>
-    // Firebase configuration (replace with your actual Firebase configuration)
-    const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_AUTH_DOMAIN",
-      databaseURL: "YOUR_DATABASE_URL",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_STORAGE_BUCKET",
-      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-      appId: "YOUR_APP_ID"
-    };
+    // MySql connector:-
+    async function registerUser(event) {
+        event.preventDefault();
+        const username = document.querySelector('input[name="name"]').value;
+        const password = document.querySelector('input[name="password"]').value;
+        const country = document.querySelector('select[name="country"]').value;
 
-    firebase.initializeApp(firebaseConfig);
-    const database = firebase.database();
+        const response = await fetch('/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password, country })
+        });
 
-    // Register new user
-    function registerUser(event) {
-      event.preventDefault();
-      const name = document.querySelector('input[name="name"]').value;
-      const password = document.querySelector('input[name="password"]').value;
-      const country = document.querySelector('select[name="country"]').value;
-
-      const userId = database.ref().child('users').push().key;
-      database.ref('users/' + userId).set({
-        username: name,
-        password: password,
-        country: country
-      }).then(() => {
-        alert("User registered successfully!");
-        document.getElementById("registerForm").reset();
-      }).catch((error) => {
-        alert("Error: " + error.message);
-      });
+        if (response.ok) {
+            alert("User registered successfully!");
+            document.getElementById("registerForm").reset();
+        } else {
+            alert("Registration failed.");
+        }
     }
-  </script>
+</script>
+
 
   <!-- Vendor JS Files -->
   <script src="{{url_for('static', filename='assets/vendor/aos/aos.js')}}"></script>

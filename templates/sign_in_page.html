@@ -69,42 +69,27 @@
   </footer>
 
   <script>
-    // Firebase configuration
-    const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_AUTH_DOMAIN",
-      databaseURL: "YOUR_DATABASE_URL",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_STORAGE_BUCKET",
-      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-      appId: "YOUR_APP_ID"
-    };
+    async function signInUser(event) {
+        event.preventDefault();
+        const username = document.querySelector('input[name="nameSignIn"]').value;
+        const password = document.querySelector('input[name="passwordSignIn"]').value;
 
-    firebase.initializeApp(firebaseConfig);
-    const database = firebase.database();
+        const response = await fetch('/sign_in', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password })
+        });
 
-    function signInUser(event) {
-      event.preventDefault();
-      const nameSignIn = document.querySelector('input[name="nameSignIn"]').value;
-      const passwordSignIn = document.querySelector('input[name="passwordSignIn"]').value;
-
-      database.ref("users").orderByChild("username").equalTo(nameSignIn).once("value", (snapshot) => {
-        if (snapshot.exists()) {
-          snapshot.forEach((userSnapshot) => {
-            const userData = userSnapshot.val();
-            if (userData.password === passwordSignIn) {
-              alert("Sign-in successful!");
-              window.location.href = "/dashboard.html"; // Redirect to the dashboard page
-            } else {
-              alert("Incorrect password!");
-            }
-          });
+        if (response.ok) {
+            alert("Sign-in successful!");
+            window.location.href = "/services";
         } else {
-          alert("User not found!");
+            const result = await response.json();
+            alert(result.error || "Sign-in failed");
         }
-      });
     }
-  </script>
+</script>
+
 
   <!-- Vendor JS Files -->
   <script src="{{url_for('static', filename='assets/vendor/aos/aos.js')}}"></script>
@@ -118,4 +103,4 @@
 
 </body>
 
-</html>
+</html> 
