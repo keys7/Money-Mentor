@@ -8,9 +8,6 @@ Register Number - Name
 21BCE10139 - Vaibhav Grover
 21BCE10304 - Udit Tyagi
 21BCE11242 - Shubham Verma
-Here’s a revised README for Money Mentor that reflects MySQL as the database and a T1 architecture. This should provide a clear structure and outline for new users and contributors:
-
----
 
 # Money Mentor
 
