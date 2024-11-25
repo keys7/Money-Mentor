@@ -114,9 +114,6 @@ Here's the updated section for launching the application with steps to include w
 
 ---
 
-This setup ensures all dependencies are handled smoothly, and the project is ready to run directly. If there are additional environment-specific requirements, let me know to update further!
----
-
 ## Contribution Guidelines
 
 1. Fork the repository.
