@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Money Mentor</title>
+  <meta content="This is an AI Chat bot for Loan. It uses Natural Language Processing." name="description">
+  <meta content="FinAI,Loan,bot,Money,Borrow bot,chat-bot,ai" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{{url_for('static', filename='img/bothead.png')}}" rel="icon">
+  <link href="{{url_for('static', filename='img/bothead.png')}}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{url_for('static', filename='vendor/aos/aos.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='vendor/remixicon/remixicon.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #37517e;
+      font-family: 'Open Sans', sans-serif;
+      color: white;
+    }
+    .form-container {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: rgb(31, 23, 23);
+      border-radius: 8px;
+      font-size: 20px;
+    }
+    .form-container h3, .form-container h4 {
+      margin-bottom: 20px;
+      color: white;
+      text-align: center;
+      font-size: 28px;
+    }
+    .form-control {
+      background-color: rgb(150, 216, 238);
+      border: none;
+      margin-bottom: 15px;
+      color: white;
+    }
+    .form-control::placeholder {
+      color: white;
+      opacity: 0.7;
+    }
+    .form-select {
+      background-color: rgb(150, 216, 238);
+      border: none;
+      color: white;
+      margin-bottom: 15px;
+    }
+    .submit-btn {
+      width: 100%;
+      background-color: #E4542A;
+      border: none;
+      padding: 10px;
+      font-size: 20px;
+      color: white;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    .submit-btn:hover {
+      background-color: #cb3c14;
+    }
+  </style>
+
+</head>
+<body>
+
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="/">Money Mentor</a></h1>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="/chat">Chat</a></li>
+          <li><a class="getstarted scrollto" href="#why-us">Get Started</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="form-section">
+      <div class="form-container">
+        <h3>Predict your loan application and learn where and how to!!</h3>
+        <h4>Kindly fill the form below</h4>
+        <form action="/submit_loan_form" method="POST">
+          
+          <!-- Existing Fields -->
+          Username
+          <input class="form-control form-control-lg" type="text" name="username" placeholder="Enter your username" required/>
+
+          Number of Dependents
+          <input class="form-control form-control-lg" type="number" name="depend" step="1" required/>
+          
+          Education
+          <select class="form-select form-select-lg mb-3" name="education" required>
+            <option value="">Choose</option>
+            <option value="0">Graduate</option>
+            <option value="1">Not Graduate</option>
+          </select>
+
+          Employment Status
+          <select class="form-select form-select-lg mb-3" name="employment" required>
+            <option value="">Choose</option>
+            <option value="1">Employed (Self)</option>
+            <option value="0">Not Employed</option>
+          </select>
+
+          Annual Income (USD)
+          <input class="form-control form-control-lg" type="number" name="income" step="any" required/>
+
+          Loan Amount (USD)
+          <input class="form-control form-control-lg" type="number" name="loan_amount" step="any" required/>
+
+          Loan Term (Years)
+          <input class="form-control form-control-lg" type="number" name="loan_term" step="any" required/>
+
+          Credit Score
+          <input class="form-control form-control-lg" type="number" name="score" step="any" required/>
+
+          <!-- New Fields -->
+          Resident Assets
+          <input class="form-control form-control-lg" type="number" name="resident" step="any" required/>
+
+          Commercial Assets
+          <input class="form-control form-control-lg" type="number" name="commercial" step="any" required/>
+
+          Luxury Assets
+          <input class="form-control form-control-lg" type="number" name="luxury" step="any" required/>
+
+          Bank Assets
+          <input class="form-control form-control-lg" type="number" name="bank" step="any" required/>
+
+          <div class="col-12 text-center">
+            <input class="btn btn-lg submit-btn" type="submit" value="Submit Loan Request" />
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="{{url_for('static', filename='vendor/aos/aos.js')}}"></script>
+  <script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{url_for('static', filename='vendor/glightbox/js/glightbox.min.js')}}"></script>
+  <script src="{{url_for('static', filename='vendor/swiper/swiper-bundle.min.js')}}"></script>
+  <script src="{{url_for('static', filename='js/main.js')}}"></script>
+
+</body>
+</html>

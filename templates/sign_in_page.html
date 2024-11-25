@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Money Mentor - Sign In</title>
+
+  <!-- Firebase App (the core Firebase SDK) -->
+  <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"></script>
+  <!-- Firebase Authentication -->
+  <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Jost|Poppins" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{url_for('static', filename='vendor/aos/aos.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='vendor/remixicon/remixicon.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+
+</head>
+
+<body>
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+      <h1 class="logo me-auto"><a href="/">Money Mentor</a></h1>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="/">Home</a></li>
+          <li><a class="getstarted scrollto" href="#why-us">Get Started</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero" class="d-flex align-items-center" style="height: 100vh; background-image: url('/static/img/sign.png'); background-size: cover; background-color: #37517e;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+          <h1 style="color: white;">Sign In</h1>
+          <form id="signInForm" style="color: white;" onsubmit="signInUser(event)">
+            Username <br>
+            <input class="form-control form-control-lg" type="text" name="nameSignIn" placeholder="Enter your username" required><br>
+            Password <br>
+            <input class="form-control form-control-lg" type="password" name="passwordSignIn" placeholder="Enter your password" required><br>
+            <button class="btn btn-lg btn-secondary" style="background-color: #E4542A; color: white;" type="submit">Sign In</button>
+          </form>
+          <h2 style="color: white; margin-top: 40px;">Not Registered? <a href="/register" style="color: white;">Register In Below</a></h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer">
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Money Mentor</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    async function signInUser(event) {
+        event.preventDefault();
+        const username = document.querySelector('input[name="nameSignIn"]').value;
+        const password = document.querySelector('input[name="passwordSignIn"]').value;
+
+        const response = await fetch('/sign_in', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password })
+        });
+
+        if (response.ok) {
+            alert("Sign-in successful!");
+            window.location.href = "/services";
+        } else {
+            const result = await response.json();
+            alert(result.error || "Sign-in failed");
+        }
+    }
+</script>
+
+
+  <!-- Vendor JS Files -->
+  <script src="{{url_for('static', filename='vendor/aos/aos.js')}}"></script>
+  <script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{url_for('static', filename='vendor/glightbox/js/glightbox.min.js')}}"></script>
+  <script src="{{url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{url_for('static', filename='vendor/swiper/swiper-bundle.min.js')}}"></script>
+  <script src="{{url_for('static', filename='vendor/waypoints/noframework.waypoints.js')}}"></script>
+  <script src="{{url_for('static', filename='vendor/php-email-form/validate.js')}}"></script>
+  <script src="{{url_for('static', filename='js/main.js')}}"></script>
+
+</body>
+
+</html> 
