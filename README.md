@@ -1,7 +1,3 @@
-Here’s a possible README file for your **Money-Mentor** project, inspired by the structure of the **AI-Finance** project's README and tailored for the technologies you’re using:
-
----
-
 # Money Mentor
 
 **Money Mentor** is an intelligent financial assistant designed to empower users with better financial habits and insights. Through its advanced chatbot and data visualization capabilities, Money Mentor simplifies personal finance management, offering tailored recommendations for spending, budgeting, and savings goals.
