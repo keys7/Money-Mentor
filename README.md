@@ -135,11 +135,7 @@ Here's the updated section for launching the application with steps to include w
 
 ## Video Demo
 
-
-https://github.com/user-attachments/assets/a73dc474-b060-482b-8316-b07a3ca93dd0
-
-
-
+https://github.com/user-attachments/assets/4c18ad79-d7cf-47e0-89a5-955071923229
 
 ## Future Enhancements
 
