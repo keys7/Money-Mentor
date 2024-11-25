@@ -70,18 +70,51 @@
 1. Ensure MySQL is installed and running on your machine.
 2. Create a database for Money Mentor and update the connection details in the `config.py` file.
 
+Here's the updated section for launching the application with steps to include working with Visual Studio Code (VS Code), cloning the repository, and installing dependencies:
+
+---
+
 ### Launch the Application
-1. Train the chatbot:
-   ```bash
-   python train.py
-   ```
-2. Start the server:
-   ```bash
-   python app.py
-   ```
 
-Visit `http://localhost:5000` in your browser to access Money Mentor.
+1. **Open VS Code and Clone the Repository**:
+   - Open your terminal in VS Code or any preferred terminal.
+   - Clone the repository using the following command:
+     ```bash
+     git clone https://github.com/keys7/Money-Mentor.git
+     ```
+   - Navigate into the cloned directory:
+     ```bash
+     cd Money-Mentor
+     ```
 
+2. **Set Up Dependencies**:
+   - Install the required dependencies listed in the `requirements.txt` file:
+     ```bash
+     pip install -r requirements.txt
+     ```
+
+3. **Train the Chatbot**:
+   - Train the chatbot model using:
+     ```bash
+     python train.py
+     ```
+
+4. **Start the Server**:
+   - Run the application server:
+     ```bash
+     python app.py
+     ```
+
+5. **Access the Application**:
+   - Open your browser and visit:
+     ```
+     http://localhost:5000
+     ```
+   - Interact with **Money Mentor** and explore its features.
+
+---
+
+This setup ensures all dependencies are handled smoothly, and the project is ready to run directly. If there are additional environment-specific requirements, let me know to update further!
 ---
 
 ## Contribution Guidelines
