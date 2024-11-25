@@ -14,15 +14,29 @@
 - **Frontend:** HTML, CSS, and JavaScript for a dynamic and responsive interface.
 - **Backend:** Flask (Python) for server-side logic.
 - **Database:** MySQL for efficient storage and retrieval of user data.
-- **Libraries and Frameworks:**
-  - PyTorch for deep learning models.
-  - NLTK for natural language processing.
+Here is the edited version with your additions incorporated:
+
+---
+
+**Libraries and Frameworks:**
+- **Flask**: For building the web application.
+- **google.generativeai**: To integrate generative AI for dynamic text or content generation.
+- **MySQL (via `mysql.connector`)**: For storing and managing user data.
+- **Flask-Bcrypt**: To handle password hashing and security.
+- **Werkzeug**: For secure password generation and validation.
+- **Markdown**: For rendering Markdown into HTML.
+- **NumPy**: For numerical computations and handling arrays.
+- **Pandas**: For data manipulation and analysis.
+- **Textwrap**: For formatting and wrapping text lines.
+  
+--- 
+
 - **APIs:** Integration with financial data APIs for real-time insights.
 
 ## Installation and Setup
 
 ### Prerequisites
-1. Install [Anaconda](https://www.anaconda.com/).
+1. Install [Anaconda](https://www.anaconda.com/) / [VSCode](https://code.visualstudio.com/).
 2. Clone the repository:
    ```bash
    git clone https://github.com/keys7/Money-Mentor.git
