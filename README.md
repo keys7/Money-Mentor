@@ -2,6 +2,8 @@
 
 **Money Mentor** is an intelligent financial assistant designed to empower users with better financial habits and insights. Through its advanced chatbot and data visualization capabilities, Money Mentor simplifies personal finance management, offering tailored recommendations for spending, budgeting, and savings goals.
 
+---
+
 ## Features
 
 - **Chatbot Assistance:** Resolve financial queries using an NLP-powered chatbot.
@@ -9,12 +11,13 @@
 - **Visualization:** Interactive data displays for insightful financial analytics.
 - **User-Friendly UI:** Intuitive design for seamless user interaction.
 
+---
+
 ## Technology Stack
 
 - **Frontend:** HTML, CSS, and JavaScript for a dynamic and responsive interface.
 - **Backend:** Flask (Python) for server-side logic.
 - **Database:** MySQL for efficient storage and retrieval of user data.
-Here is the edited version with your additions incorporated:
 
 ---
 
@@ -33,6 +36,8 @@ Here is the edited version with your additions incorporated:
 
 - **APIs:** Integration with financial data APIs for real-time insights.
 
+---
+
 ## Installation and Setup
 
 ### Prerequisites
@@ -42,6 +47,8 @@ Here is the edited version with your additions incorporated:
    git clone https://github.com/keys7/Money-Mentor.git
    cd Money-Mentor
    ```
+
+---
 
 ### Backend Setup
 1. Create a virtual environment and activate it:
@@ -57,6 +64,7 @@ Here is the edited version with your additions incorporated:
    ```python
    python -m nltk.downloader punkt
    ```
+---
 
 ### Database Configuration
 1. Ensure MySQL is installed and running on your machine.
@@ -73,6 +81,8 @@ Here is the edited version with your additions incorporated:
    ```
 
 Visit `http://localhost:5000` in your browser to access Money Mentor.
+
+---
 
 ## Contribution Guidelines
 
@@ -91,11 +101,15 @@ Visit `http://localhost:5000` in your browser to access Money Mentor.
    ```
 5. Open a pull request for review.
 
+---
+
 ## Future Enhancements
 
 - **Mobile App:** Develop a React Native-based app for broader accessibility.
 - **AI Optimization:** Enhance the chatbot's intelligence with advanced AI techniques.
 - **Multi-Language Support:** Extend chatbot support to multiple languages.
+
+---
 
 ## License
 
