@@ -133,6 +133,14 @@ Here's the updated section for launching the application with steps to include w
 
 ---
 
+## Video Demo
+
+
+https://github.com/user-attachments/assets/a73dc474-b060-482b-8316-b07a3ca93dd0
+
+
+
+
 ## Future Enhancements
 
 - **Mobile App:** Develop a React Native-based app for broader accessibility.
